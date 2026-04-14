@@ -12,7 +12,8 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch('http://localhost:5000/capture', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/capture';
+      await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
